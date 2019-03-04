@@ -1,0 +1,126 @@
+/**
+ * Project name: JspAndServlet
+ * File name: Contact.java
+ * Author: sanero
+ * Created date: Jan 8, 2019
+ * Created time: 5:10:35 PM
+ */
+
+package entity;
+
+/*
+ * @author User
+ * Description: TODO - Contact information.
+ * Created date: Jan 8, 2019
+ * Created time: 5:10:35 PM
+ */
+public class Contact {
+  // Attribute
+  private int id;
+  private String name;
+  private String phone;
+  private String address;
+  private String graduate;
+  private String major;
+  private String email;
+
+//Getter and setter
+  /*
+   * @return the id
+   */
+  public int getId() {
+    return id;
+  }
+
+  /*
+   * @param id the id to set
+   */
+  public void setId(int id) {
+    this.id = id;
+  }
+
+  /*
+   * @return the name
+   */
+  public String getName() {
+    return name;
+  }
+
+  /*
+   * @param name the name to set
+   */
+  public void setName(String name) {
+    this.name = name;
+  }
+
+  /*
+   * @return the phone
+   */
+  public String getPhone() {
+    return phone;
+  }
+
+  /*
+   * @param phone the phone to set
+   */
+  public void setPhone(String phone) {
+    this.phone = phone;
+  }
+
+  /*
+   * @return the address
+   */
+  public String getAddress() {
+    return address;
+  }
+
+  /*
+   * @param address the address to set
+   */
+  public void setAddress(String address) {
+    this.address = address;
+  }
+
+  /*
+   * @return the graduate
+   */
+  public String getGraduate() {
+    return graduate;
+  }
+
+  /*
+   * @param graduate the graduate to set
+   */
+  public void setGraduate(String graduate) {
+    this.graduate = graduate;
+  }
+
+  /*
+   * @return the major
+   */
+  public String getMajor() {
+    return major;
+  }
+
+  /*
+   * @param major the major to set
+   */
+  public void setMajor(String major) {
+    this.major = major;
+  }
+
+  /*
+   * @return the email
+   */
+  public String getEmail() {
+    return email;
+  }
+
+  /*
+   * @param email the email to set
+   */
+  public void setEmail(String email) {
+    this.email = email;
+  }
+
+}

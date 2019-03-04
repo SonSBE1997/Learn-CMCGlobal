@@ -1,0 +1,79 @@
+/**
+ * Project name: BasicJSPServlet
+ * File name: DBConnection.java
+ * Author: sanero
+ * Created date: Jan 8, 2019
+ * Created time: 2:21:38 PM
+ */
+
+package utils;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+
+/*
+ * @author User
+ *
+ */
+public class DbConnection {
+
+  /**
+   *  Driver MySQL.
+   */
+  static final String DRIVER = "com.mysql.jdbc.Driver";
+
+  /**
+   * URL.
+   */
+  static final String URL = "jdbc:mysql://localhost:3306/basic?useSSL=false";
+
+  /**
+   * Username login MySQL.
+   */
+  static final String USER_NAME = "root";
+
+  /**
+   * Password login MySQL.
+   */
+  static final String PASSWORD = "123456aA@";
+
+  /**
+   * Author: sanero
+   * Created date: Jan 8, 2019
+   * Created time: 2:25:51 PM
+   * Description: TODO - get Connection.
+   * @return MySQL connection.
+   */
+  public static Connection getConnection() {
+    // load driver
+    try {
+      Class.forName(DRIVER);
+    } catch (ClassNotFoundException e) {
+      e.printStackTrace();
+    }
+    // get connection instance
+    Connection connection = null;
+    try {
+      connection = DriverManager.getConnection(URL, USER_NAME, PASSWORD);
+    } catch (SQLException e) {
+      e.printStackTrace();
+    }
+    return connection;
+  }
+
+  /**
+   * Author: sanero
+   * Created date: Jan 8, 2019
+   * Created time: 2:31:17 PM
+   * Description: TODO - Close connection.
+   * @param conn - connection want to close.
+   */
+  public static void releaseConnection(final Connection conn) {
+    try {
+      conn.close();
+    } catch (SQLException e) {
+      e.printStackTrace();
+    }
+  }
+}

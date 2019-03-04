@@ -1,0 +1,19 @@
+/**
+ * Project name: JspAndServlet
+ * File name: Constant.java
+ * Author: sanero
+ * Created date: Jan 8, 2019
+ * Created time: 5:03:26 PM
+ */
+
+package utils;
+
+/*
+ * @author User
+ * Description: TODO - 
+ * Created date: Jan 8, 2019
+ * Created time: 5:03:26 PM
+ */
+public interface Constant {
+
+}

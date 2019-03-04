@@ -1,0 +1,15 @@
+<!DOCTYPE html >
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" th:href="@{style.css}" />
+</head>
+<body>
+	<div th:insert="header.html :: header">abcd</div>
+	<p th:utext="${user}">hello</p>
+	<p></p>
+	<div>footer</div>
+	<a href="/signup" th:href="@{/signup}" class="btn btn-large btn-success">Sign up</a>
+</body>
+</html>

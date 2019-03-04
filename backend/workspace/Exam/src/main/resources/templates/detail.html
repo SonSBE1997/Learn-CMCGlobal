@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Detail Personal</title>
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+<style>
+label.title {
+	margin-top: 0.5%;
+}
+
+.mb5 {
+	margin-bottom: 1% !important;
+}
+
+.action {
+	margin-left: 17.5%;
+	margin-top: 5% !important;
+}
+
+.top-nav{
+	margin-top:2%;
+}
+</style>
+</head>
+<body>
+	<div class="container">
+		<div class="pull-right top-nav">
+			<a th:href="@{/admin/logout}" class="btn btn-success">Logout</a>
+		</div>
+		<div class="clearfix"></div>
+		<hr />
+		<h2 class="text-center text-danger">Personal Information</h2>
+		<div th:object="${personal}">
+			<div class="form-group">
+				<label class="col-sm-2 control-label title">Full Name</label>
+				<div class="col-sm-10">
+					<input type="text" class="form-control mb5" name="personal"
+						placeholder="url"
+						th:value="${personal.firstName + ' ' + personal.lastName}"
+						readonly="readonly" />
+				</div>
+			</div>
+
+			<div class="form-group">
+				<label class="col-sm-2 control-label title">Telephone</label>
+				<div class="col-sm-10">
+					<input type="text" class="form-control mb5" name="telephone"
+						placeholder="description" th:value="${personal.telephone}"
+						readonly="readonly" />
+				</div>
+			</div>
+
+			<div class="form-group">
+				<label class="col-sm-2 control-label title">Email</label>
+				<div class="col-sm-10">
+					<input type="text" class="form-control mb5" name="email"
+						placeholder="email" th:value="${personal.email}"
+						readonly="readonly" />
+				</div>
+			</div>
+
+			<div class="form-group">
+				<label class="col-sm-2 control-label title">Address</label>
+				<div class="col-sm-10">
+					<input class="form-control mb5" name="address" readonly="readonly"
+						th:value="${personal.address}"></input>
+				</div>
+			</div>
+
+			<div class="form-group">
+				<label class="col-sm-2 control-label title">Hobbies</label>
+				<div class="col-sm-10">
+					<input class="form-control mb5" name="address" readonly="readonly"
+						th:value="${personal.hobbie}"></input>
+				</div>
+			</div>
+
+			<div class="form-group">
+				<label class="col-sm-2 control-label title">Description</label>
+				<div class="col-sm-10">
+					<input class="form-control mb5" name="address" readonly="readonly"
+						th:value="${personal.description}"></input>
+				</div>
+			</div>
+
+			<div class="button-group clearfix action">
+				<a th:href="@{/admin/personal}" class="btn btn-default">Back to
+					list</a> <a th:href="@{/admin/personal/edit/} + ${personal.personalId}"
+					class="btn btn-warning">Edit</a> <a
+					class="btn btn-danger btn-delete"
+					th:attr="data-id=${personal.personalId}">Delete</a>
+			</div>
+		</div>
+	</div>
+
+	<script
+		src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+	<!-- Latest compiled JavaScript -->
+	<script
+		src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<script type="text/javascript">
+		$('.btn-delete').off('click').on('click', function(e) {
+			e.preventDefault();
+			var btn = $(this);
+			var id = btn.data('id');
+			var result = confirm("Do you sure delete this personal?");
+			if (result) {
+				$.ajax({
+					url : "/admin/personal/delete",
+					data : {
+						id : id
+					},
+					type : "POST",
+					success : function(response) {
+						if (response == "success") {
+							window.location.href = '/admin/personal';
+						}
+					}
+				});
+			}
+		});
+	</script>
+</body>
+</html>

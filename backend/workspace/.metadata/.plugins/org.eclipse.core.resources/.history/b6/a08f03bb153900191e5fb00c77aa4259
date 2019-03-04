@@ -1,0 +1,20 @@
+/**
+ * Project name: Testing_System
+ * Package name: com.cmcglobal.repository
+ * File name: AnswerRepository.java
+ * Author: Sanero.
+ * Created date: Feb 25, 2019
+ * Created time: 10:54:33 PM
+ */
+
+package com.cmcglobal.repository;
+
+/*
+ * @author Sanero.
+ * Created date: Feb 25, 2019
+ * Created time: 10:54:33 PM
+ * Description: TODO - 
+ */
+public class AnswerRepository {
+
+}

@@ -1,0 +1,43 @@
+[33m2019-02-22 17:45:00[0;39m [http-nio-8080-exec-1] INFO  o.a.c.c.C.[.[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+[33m2019-02-22 17:45:00[0;39m [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+[33m2019-02-22 17:45:00[0;39m [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 6 ms
+[33m2019-02-22 17:45:00[0;39m [http-nio-8080-exec-1] ERROR c.c.s.serviceImpl.ExamServiceImpl - approve exam failed: No value present
+[33m2019-02-22 17:45:14[0;39m [Thread-607] INFO  o.s.s.c.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
+[33m2019-02-22 17:45:14[0;39m [Thread-607] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+[33m2019-02-22 17:45:14[0;39m [Thread-607] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-117 - Shutdown initiated...
+[33m2019-02-22 17:45:14[0;39m [Thread-607] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-117 - Shutdown completed.
+2019-02-22 17:45:14 [restartedMain] INFO  c.cmcglobal.TestingSystemApplication - Starting TestingSystemApplication on DESKTOP-PGKHSCB with PID 15432 (E:\workspace\frontend\TestingSystem\Testing_System\target\classes started by User in E:\workspace\frontend\TestingSystem\Testing_System)
+2019-02-22 17:45:14 [restartedMain] INFO  c.cmcglobal.TestingSystemApplication - No active profile set, falling back to default profiles: default
+2019-02-22 17:45:14 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data repositories in DEFAULT mode.
+2019-02-22 17:45:14 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 30ms. Found 10 repository interfaces.
+2019-02-22 17:45:14 [restartedMain] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$c66a30f1] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-02-22 17:45:14 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+2019-02-22 17:45:14 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2019-02-22 17:45:14 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.14]
+2019-02-22 17:45:15 [restartedMain] INFO  o.a.c.c.C.[.[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2019-02-22 17:45:15 [restartedMain] INFO  o.s.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 372 ms
+2019-02-22 17:45:15 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-118 - Starting...
+2019-02-22 17:45:15 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-118 - Start completed.
+2019-02-22 17:45:15 [restartedMain] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2019-02-22 17:45:15 [restartedMain] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2019-02-22 17:45:15 [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2019-02-22 17:45:15 [restartedMain] INFO  o.h.h.i.QueryTranslatorFactoryInitiator - HHH000397: Using ASTQueryTranslatorFactory
+2019-02-22 17:45:15 [restartedMain] INFO  o.s.b.f.a.AutowiredAnnotationBeanPostProcessor - Autowired annotation should only be used on methods with parameters: public org.springframework.http.ResponseEntity com.cmcglobal.controller.SemesterExamController.findAllSemesterExam()
+2019-02-22 17:45:15 [restartedMain] INFO  o.s.b.a.s.s.UserDetailsServiceAutoConfiguration - 
+
+Using generated security password: 9b339533-8ba7-4322-bce9-decedbb23ab7
+
+2019-02-22 17:45:15 [restartedMain] INFO  o.s.s.web.DefaultSecurityFilterChain - Creating filter chain: Ant [pattern='/v2/api-docs'], []
+2019-02-22 17:45:15 [restartedMain] INFO  o.s.s.web.DefaultSecurityFilterChain - Creating filter chain: Ant [pattern='/swagger-resources/**'], []
+2019-02-22 17:45:15 [restartedMain] INFO  o.s.s.web.DefaultSecurityFilterChain - Creating filter chain: Ant [pattern='/swagger-ui.html'], []
+2019-02-22 17:45:15 [restartedMain] INFO  o.s.s.web.DefaultSecurityFilterChain - Creating filter chain: Ant [pattern='/configuration/**'], []
+2019-02-22 17:45:15 [restartedMain] INFO  o.s.s.web.DefaultSecurityFilterChain - Creating filter chain: Ant [pattern='/webjars/**'], []
+2019-02-22 17:45:15 [restartedMain] INFO  o.s.s.web.DefaultSecurityFilterChain - Creating filter chain: Ant [pattern='/public'], []
+2019-02-22 17:45:15 [restartedMain] INFO  o.s.s.web.DefaultSecurityFilterChain - Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@30014ede, org.springframework.security.web.context.SecurityContextPersistenceFilter@37c2dc00, org.springframework.security.web.header.HeaderWriterFilter@1d1434e5, org.springframework.web.filter.CorsFilter@1d5384de, org.springframework.security.web.authentication.logout.LogoutFilter@29a121d2, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@593632a3, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@6539967c, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@1b1e659d, org.springframework.security.web.session.SessionManagementFilter@162b4ff6, org.springframework.security.web.access.ExceptionTranslationFilter@174f2ab9, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@513384f]
+2019-02-22 17:45:15 [restartedMain] INFO  o.s.s.c.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+2019-02-22 17:45:15 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2019-02-22 17:45:15 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
+2019-02-22 17:45:15 [restartedMain] INFO  c.cmcglobal.TestingSystemApplication - Started TestingSystemApplication in 0.967 seconds (JVM running for 6253.144)
+2019-02-22 17:45:15 [restartedMain] INFO  o.s.b.d.a.ConditionEvaluationDeltaLoggingListener - Condition evaluation unchanged

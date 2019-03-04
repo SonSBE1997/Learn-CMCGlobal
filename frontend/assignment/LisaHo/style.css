@@ -1,0 +1,261 @@
+body {
+    margin:0px;
+    padding:0px;
+    overflow: auto; 
+}
+
+/* Header */
+
+.header{
+    height: 90px;
+    margin: 0px !important;
+    padding: 0px !important;
+    margin-top: 1%;
+    border-bottom: 1px black solid;
+    align-content: center;
+}
+
+.logo{
+    margin-left: 25%;
+    margin-top: 0.5%;
+    width: 35%;
+}
+
+.logo img{
+    height: 100% !important;
+    width: 25%;
+}
+
+.hot-line{
+    font-size: 100%;
+    font-weight: bold;
+    padding-right: 20%;
+    height: 100%;
+    padding-top: 2.5%;
+    text-transform: uppercase;
+    text-align: center;
+}
+
+/* Banner */
+
+.banner-area{
+    margin: 0px auto;
+    height: 500px;
+    padding: 0px;
+    background-color: #e6e8ed;
+}
+
+.banner{
+    height: 100%;
+    margin: 0px 15%;
+    background: no-repeat;
+    background-size: 100%;
+}
+
+/* Form in banner */
+.register{
+    background-color: #fff;
+    width: 22%;
+    padding: 1%;
+    margin-top:10%;
+    margin-right: 14%;
+    border-top: solid #9ce54e 5px;
+    text-align: center;
+}
+
+.register .title-form{
+    text-transform: uppercase;
+    color:#ea8d0b;
+    word-wrap: break-word;
+    font-weight: bold;
+    font-size: 110%;
+}
+
+.register .content-form{
+    font-size: 72%;
+}
+
+.register form input,select{
+    margin-bottom: 4%;
+    width: 95%;
+    padding: 1%;
+    padding-left: 4%;
+    border: none;
+    border: solid 1px #ccc;
+    border-radius: 3px;
+    font-size: 95%;
+}
+
+.register form select{
+ margin-bottom: 4% !important;
+}
+
+#submit-register{
+    background-color: #85ce37;
+    height: 40px;
+    margin-top: 3%;
+    margin-bottom: 5%;
+}
+
+/* --------------------------------------CONTENT STYLE */
+
+/* ------------section 1 */
+
+.content-wrapper .section1 {
+    padding: 0 15%;
+    text-align: center;
+    height: 500px;
+}
+
+.section1 .row
+{
+    margin: 0px 5%;
+}
+
+.section1 .step {
+    background-color: #ea8d0b;
+    width: 100%;
+    text-align: center;
+    height: 150px;
+    margin-right: 0px !important;
+    padding-right: 0px !important;
+    margin-bottom: 5%;
+}
+
+.content-wrapper .section1 img {
+    width: 50%;
+    margin-top: 10%;
+}
+
+.content-wrapper .section1 button {
+    width: 15%;
+    margin-bottom: 5%;
+    background-color: #85ce37;
+    color: #fff;
+    font-weight: bold;
+}
+
+.content-wrapper .section1 button:active {
+    background-color:  #528e11;
+}
+
+/* -----------section 2 */
+
+.content-wrapper .section2 {
+    padding: 0 12%;
+    text-align: center;
+    background-color: #e6e8ed;
+}
+
+.section2 .row{
+    margin: 0px 3%;
+}
+
+.section2 img {
+    padding-bottom: 3%;
+}
+
+/* -------- common */
+
+
+
+.content-wrapper .title {
+    margin: 0;
+    padding: 5% 0;
+    font-weight: bold;
+    color:  #85ce37;
+    font-size: calc(12px + 0.8vw);
+}
+
+
+.content-wrapper .sub-title {
+    padding: 0 10%;
+    font-weight: bold;
+    color:  #85ce37;
+    text-transform: uppercase;
+}
+
+/* --------------- section 3 */
+
+.content-wrapper .section3 {
+    padding: 0 12%;
+    text-align: center;
+    background-color:#f4c242;
+    background-image: url(img/benefit-2-bg.jpg);
+    background-size: 80%;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.section3 .row{
+    margin: 0px 3%;
+}
+
+.section3 img{
+    width: 70%;
+    padding: 0px;
+    border-radius: 50%;
+    background-color: #528e11;
+    margin-bottom: 5%;
+}
+
+.section3 .title{
+    color: #fff;
+}
+
+.section3 .sub-title{
+    color: #fff;
+}
+
+.section3 .content{
+    word-wrap: break-word;
+}
+
+/*  section 4 */
+.content-wrapper .section4 {
+    padding: 0 12%;
+    text-align: center;
+    background-color: #fff;
+}
+
+.section4 .row{
+    margin: 0px 3%;
+}
+
+.section4 .left{
+    width: 90%;
+}
+
+.section4 .right{
+    margin-top: 5% !important;
+}
+
+.section4 .btnddts{
+    width: 10%;
+    margin-top: 2%;
+    margin-bottom: 5%;
+    background-color: #f4c242;
+    color: #fff;
+    font-weight: bold;
+}
+
+/* Section 5 */
+
+.content-wrapper .section5 {
+    text-align: center;
+    background-color: #e6e8ed;
+}
+
+.section5 .row{
+    margin: 0px 8%;
+    text-align: center;
+}
+
+.section5 .col-lg-1{
+    width: 11% !important;
+    margin-right: 3% !important;
+}
+
+.section5 img {
+    padding-bottom: 3%;
+}

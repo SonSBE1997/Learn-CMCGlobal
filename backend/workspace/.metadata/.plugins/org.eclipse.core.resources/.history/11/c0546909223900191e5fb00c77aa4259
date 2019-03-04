@@ -1,0 +1,34 @@
+package com.cmcglobal.controller;
+
+import org.junit.runner.RunWith;
+import org.mockito.junit.MockitoJUnitRunner;
+
+@RunWith(MockitoJUnitRunner.class)
+public class ExamControllerTest {
+  
+
+}
+//////////////////////////////////////////////////////////// LAST
+//@RequestMapping(Api.Exam.BASE_URL)
+//@RunWith(SpringJUnit4ClassRunner.class)
+//@ContextConfiguration(classes = TestingSystemApplication.class)
+//@SpringBootTest
+//@FixMethodOrder(MethodSorters.NAME_ASCENDING)
+//public class ExamControllerTest {
+//private MockMvc mockMvc;
+//  
+//  @Autowired
+//    private WebApplicationContext wac;
+//
+//  @Before
+//  public void setup() {
+//        this.mockMvc = MockMvcBuilders.webAppContextSetup(wac).build();
+//
+//  }
+//  
+//  @Test
+//  public void verifyListExams() throws Exception {
+//    mockMvc.perform(MockMvcRequestBuilders.get(Api.Exam.GET_ALL).accept(MediaType.APPLICATION_JSON))
+//      .andExpect(jsonPath("$", hasSize(15))).andDo(print());
+//  }
+//}

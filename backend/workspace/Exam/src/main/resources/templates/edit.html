@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Add news</title>
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<style>
+label.title {
+	margin-top: 0.5%;
+}
+
+.mb5 {
+	margin-bottom: 2% !important;
+}
+
+.top-nav {
+	margin-top: 2%;
+}
+</style>
+</head>
+<body>
+	<div class="container">
+		<div class="pull-right top-nav">
+			<a th:href="@{/admin/logout}" class="btn btn-success">Logout</a>
+		</div>
+		<div class="clearfix"></div>
+		<hr />
+		<h2 class="text-center text-danger">Edit Personal</h2>
+
+		<div class="align-center">
+			<form action="" th:action="@{/admin/personal/edit}" method="post"
+				th:object="${personal}">
+				<input th:field="*{personalId}" class="hidden"
+					th:value="${personal.personalId}" />
+				<div class="form-group">
+					<label class="col-sm-2 control-label title">First Name</label>
+					<div class="col-sm-10">
+						<input type="text" class="form-control" placeholder="First Name"
+							th:value="${personal.firstName}" required="required"
+							th:field="*{firstName}" />
+						<p style="color: red" class="mb5">
+							<span th:if="${#fields.hasErrors('firstName')}"
+								th:errors="*{firstName}">..</span>
+						</p>
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label class="col-sm-2 control-label title">Last Name</label>
+					<div class="col-sm-10">
+						<input type="text" class="form-control" placeholder="Last Name"
+							th:value="${personal.lastName}" required="required"
+							th:field="*{lastName}" />
+						<p style="color: red" class="mb5">
+							<span th:if="${#fields.hasErrors('lastName')}"
+								th:errors="*{lastName}">..</span>
+						</p>
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label class="col-sm-2 control-label title">Telephone</label>
+					<div class="col-sm-10">
+						<input type="number" class="form-control" placeholder="Telephone"
+							th:value="${personal.telephone}" th:field="*{telephone}" />
+						<p style="color: red" class="mb5">
+							<span th:if="${#fields.hasErrors('telephone')}"
+								th:errors="*{telephone}">..</span>
+						</p>
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label class="col-sm-2 control-label title">Email</label>
+					<div class="col-sm-10">
+						<input type="text" class="form-control" placeholder="Email"
+							th:value="${personal.email}" th:field="*{email}" />
+						<p style="color: red" class="mb5">
+							<span th:if="${#fields.hasErrors('email')}" th:errors="*{email}">..</span>
+						</p>
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label class="col-sm-2 control-label title">Address</label>
+					<div class="col-sm-10">
+						<input type="text" class="form-control" placeholder="Address"
+							th:value="${personal.address}" required="required"
+							th:field="*{address}" />
+						<p style="color: red" class="mb5">
+							<span th:if="${#fields.hasErrors('address')}"
+								th:errors="*{address}">..</span>
+						</p>
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label class="col-sm-2 control-label title">Hobbies</label>
+					<div class="col-sm-10">
+						<input type="text" class="form-control" placeholder="Hobbies"
+							th:value="${personal.hobbie}" required="required"
+							th:field="*{hobbie}" />
+						<p style="color: red" class="mb5">
+							<span th:if="${#fields.hasErrors('hobbie')}"
+								th:errors="*{hobbie}">..</span>
+						</p>
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label class="col-sm-2 control-label title">Description</label>
+					<div class="col-sm-10">
+						<input type="text" class="form-control" placeholder="Description"
+							th:value="${personal.description}" th:field="*{description}" />
+						<p style="color: red" class="mb5">
+							<span th:if="${#fields.hasErrors('description')}"
+								th:errors="*{description}">..</span>
+						</p>
+					</div>
+				</div>
+
+				<div class="clearfix"></div>
+
+				<div class="form-group">
+					<div class="col-md-offset-2 col-md-10">
+						<a th:href="@{/admin/personal}" class="btn btn-default">Cancel</a>
+						<input type="submit" value="Update" class="btn btn-primary" />
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
+	<!-- jQuery library -->
+		<script
+			src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+		<!-- Latest compiled JavaScript -->
+		<script
+			src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</body>
+</html>

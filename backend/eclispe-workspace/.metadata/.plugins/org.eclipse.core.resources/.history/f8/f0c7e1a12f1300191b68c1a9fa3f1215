@@ -1,0 +1,21 @@
+/**
+ * Project name: JspAndServlet
+ * File name: UserRepo.java
+ * Author: sanero
+ * Created date: Jan 8, 2019
+ * Created time: 5:17:22 PM
+ */
+
+package model;
+
+/*
+ * @author User
+ * Description: TODO - user repository.
+ * Created date: Jan 8, 2019
+ * Created time: 5:17:22 PM
+ */
+public class UserRepo {
+  public User getInforLogin(String username, String password) {
+
+  }
+}

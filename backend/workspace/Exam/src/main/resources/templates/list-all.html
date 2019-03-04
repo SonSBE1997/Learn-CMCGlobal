@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>List personal</title>
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+<style type="text/css">
+.search-area {
+	display: inline-block;
+}
+
+.top-nav {
+	margin-top: 2%;
+}
+</style>
+</head>
+<body>
+	<div class="container">
+		<div class="top-nav">
+			<a th:href="@{/admin/logout}" class="btn btn-success pull-right">Logout</a>
+			<a th:href="@{/admin/personal/1}" class="btn btn-info-left">Paging</a>
+		</div>
+		<div class="clearfix"></div>
+		<hr />
+		<h2 class="text-center text-danger">List Personal</h2>
+		<div>
+			<div class="col-md-2 col-sm-2 col-xs-12 form-group">
+				<a class="btn btn-primary" th:href="@{/admin/personal/add}">Add
+					new</a>
+			</div>
+
+			<div
+				class="col-md-3 col-sm-3 col-xs-3 form-group pull-right top_search">
+				<div class="input-group">
+					<input type="text" class="form-control" name="searchString"
+						th:value="${searchStr}" id="iSearch" placeholder="Search">
+					<span class="input-group-btn">
+						<button id="btn-search" type="submit" class="btn btn-default">Search</button>
+					</span>
+				</div>
+			</div>
+		</div>
+		<table class="table table-striped table-hover">
+			<thead>
+				<tr>
+					<th class="text-center">First name</th>
+					<th class="text-center">Last Name</th>
+					<th class="text-center">Telephone</th>
+					<th class="text-center">Email</th>
+					<th class="text-center">Address</th>
+					<th class="text-center">Hobbies</th>
+					<th class="text-center">Description</th>
+					<th class="text-center">Action</th>
+				</tr>
+			</thead>
+			<tbody>
+				<th:block th:each="personal : ${personals}">
+					<tr th:id="'row' + ${personal.personalId}" class="text-center">
+						<td th:text="${personal.firstName}"></td>
+						<td th:text="${personal.lastName}"></td>
+						<td th:text="${personal.telephone}"></td>
+						<td th:text="${personal.email}"></td>
+						<td th:text="${personal.address}"></td>
+						<td th:text="${personal.hobbie}"></td>
+						<td th:text="${personal.description}"></td>
+						<td style="width: 20%" class="text-center"><a
+							class="btn btn-info"
+							th:href="@{/admin/personal/detail/} + ${personal.personalId}">Detail</a>
+							<a class="btn btn-warning"
+							th:href="@{/admin/personal/edit/} + ${personal.personalId}">Edit</a>
+							<a class="btn btn-danger" data-toggle="modal"
+									data-backdrop="static" data-keyboard="false"
+									th:attr="data-target='#delete'+${personal.personalId}">Delete</a></td>
+					</tr>
+					<div th:id="'delete' + ${personal.personalId}" class="modal fade"
+								role="dialog">
+								<div class="modal-dialog">
+									<!-- Modal content-->
+									<div class="modal-content">
+										<div class="modal-header">
+											<button type="button" class="close" data-dismiss="modal">&times;</button>
+											<h4 class="modal-title">Do u sure delete this record?</h4>
+										</div>
+										<div class="modal-footer">
+											<button type="button" class="btn btn-danger btn-delete"
+												th:attr="data-id=${personal.personalId}" data-dismiss="modal">Yes</button>
+											<button type="button" class="btn btn-default"
+												data-dismiss="modal">No</button>
+										</div>
+									</div>
+
+								</div>
+							</div>
+				</th:block>
+			</tbody>
+		</table>
+		<th:block th:if="${searchStr!=null}">
+			<a class="btn btn-default" th:href="@{/admin/personal}">Back to
+				List</a>
+		</th:block>
+	</div>
+	<!-- jQuery library -->
+	<script
+		src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+	<!-- Latest compiled JavaScript -->
+	<script
+		src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<script type="text/javascript">
+		$('.btn-delete').off('click').on('click', function(e) {
+			e.preventDefault();
+			var btn = $(this);
+			var id = btn.data('id');
+				$.ajax({
+					url : "/admin/personal/delete",
+					data : {
+						id : id
+					},
+					type : "POST",
+					success : function(response) {
+						if (response == "success") {
+							$('#row' + id).remove();
+						}
+					}
+				});
+		});
+
+		$('#btn-search').off('click').on('click', function(e) {
+			e.preventDefault();
+			var searchStr = $('#iSearch').val();
+			if (searchStr == "") {
+				window.location.href = "/admin/personal";
+				return;
+			}
+			window.location.href = "/admin/personal/filter/" + searchStr;
+		});
+	</script>
+</body>
+</html>

@@ -1,0 +1,28 @@
+/**
+ * Project name: JspAndServlet
+ * File name: Constant.java
+ * Author: sanero
+ * Created date: Jan 8, 2019
+ * Created time: 5:03:26 PM
+ */
+
+package utils;
+
+/*
+ * @author User
+ * Description: TODO - interface for constant purpose.
+ * Created date: Jan 8, 2019
+ * Created time: 5:03:26 PM
+ */
+public interface Constant {
+  /*
+   * @author User
+   * Description: TODO - user constant
+   * Created date: Jan 8, 2019
+   * Created time: 5:18:01 PM
+   */
+  interface User {
+    // column name
+    public static final String ID = "id";
+  }
+}

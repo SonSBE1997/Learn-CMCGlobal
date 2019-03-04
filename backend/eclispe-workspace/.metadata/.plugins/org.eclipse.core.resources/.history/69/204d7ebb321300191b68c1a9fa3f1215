@@ -1,0 +1,104 @@
+/**
+ * Project name: JspAndServlet
+ * File name: UserRepo.java
+ * Author: sanero
+ * Created date: Jan 8, 2019
+ * Created time: 5:17:22 PM
+ */
+
+package repository;
+
+import entity.User;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
+import utils.Constant;
+import utils.DbConnection;
+
+/*
+ * @author User
+ * Description: TODO - user repository.
+ * Created date: Jan 8, 2019
+ * Created time: 5:17:22 PM
+ */
+public class UserRepo {
+
+  /**
+   * Author: sanero
+   * Created date: Jan 8, 2019
+   * Created time: 5:24:52 PM
+   * Description: TODO - get information of user login.
+   * @param username - username.
+   * @param password - password.
+   * @return user.
+   */
+  public User getInforLogin(String username, String password)
+      throws SQLException {
+    Connection conn = DbConnection.getConnection();
+    PreparedStatement statement = conn
+        .prepareStatement(Constant.User.GET_ACCOUNT_INFO);
+    statement.setString(1, username);
+    statement.setString(2, password);
+    ResultSet resultSet = statement.executeQuery();
+    User user = new User();
+    while (resultSet.next()) {
+      user.setId(resultSet.getInt(Constant.User.ID));
+      user.setUsername(resultSet.getString(Constant.User.USER_NAME));
+      user.setPassword(resultSet.getString(Constant.User.PASSWORD));
+    }
+    resultSet.close();
+    statement.close();
+    DbConnection.releaseConnection(conn);
+    return user;
+  }
+
+  /**
+   * Author: sanero
+   * Created date: Jan 8, 2019
+   * Created time: 5:46:47 PM
+   * Description: TODO - 
+   * @param username
+   * @return user.
+   */
+  public User getUserByUsername(String username) throws SQLException {
+    Connection conn = DbConnection.getConnection();
+    PreparedStatement statement = conn
+        .prepareStatement(Constant.User.USERNAME_IS_EXIST);
+    statement.setString(1, username);
+    ResultSet resultSet = statement.executeQuery();
+    User user = new User();
+    while (resultSet.next()) {
+      user.setId(resultSet.getInt(Constant.User.ID));
+      user.setUsername(resultSet.getString(Constant.User.USER_NAME));
+      user.setPassword(resultSet.getString(Constant.User.PASSWORD));
+    }
+    resultSet.close();
+    statement.close();
+    DbConnection.releaseConnection(conn);
+    return user;
+  }
+
+  /** 
+   * Author: sanero.
+   * Created date: Jan 8, 2019
+   * Created time: 5:33:28 PM
+   * Description: TODO - Insert user to DB.
+   * @param user - user.
+   * @return - number insert.
+   * @throws SQLException - SQL exception.
+   */
+  public int insert(User user) throws SQLException {
+    Connection conn = DbConnection.getConnection();
+    PreparedStatement statement = conn.prepareStatement(Constant.User.INSERT);
+    statement.setString(1, user.getUsername());
+    statement.setString(2, user.getPassword());
+    int result = 0;
+    result = statement.executeUpdate();
+    statement.close();
+    DbConnection.releaseConnection(conn);
+    return result;
+  }
+}

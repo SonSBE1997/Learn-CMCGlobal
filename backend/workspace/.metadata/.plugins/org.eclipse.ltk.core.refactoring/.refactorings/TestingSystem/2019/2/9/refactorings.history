@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename compilation unit &apos;com.cmcglobal.utils.ExportExamPDF.java&apos; to &apos;ExportExamPdf.java&apos;&#x0D;&#x0A;- Original project: &apos;TestingSystem&apos;&#x0D;&#x0A;- Original element: &apos;com.cmcglobal.utils.ExportExamPDF.java&apos;&#x0D;&#x0A;- Renamed element: &apos;com.cmcglobal.utils.ExportExamPdf.java&apos;" description="Rename compilation unit &apos;ExportExamPDF.java&apos;" flags="2" id="org.eclipse.jdt.ui.rename.compilationunit" input="/src\/main\/java&lt;com.cmcglobal.utils{ExportExamPDF.java" name="ExportExamPdf.java" references="false" stamp="1551090665977" version="1.0"/>
+</session>

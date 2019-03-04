@@ -1,0 +1,42 @@
+/**
+ * Project name: JspAndServlet
+ * File name: UserRepo.java
+ * Author: sanero
+ * Created date: Jan 8, 2019
+ * Created time: 5:17:22 PM
+ */
+
+package model;
+
+import entity.User;
+import utils.DbConnection;
+
+import java.sql.Connection;
+import java.sql.SQLException;
+
+
+/*
+ * @author User
+ * Description: TODO - user repository.
+ * Created date: Jan 8, 2019
+ * Created time: 5:17:22 PM
+ */
+public class UserRepo {
+  /*
+   * Author: sanero
+   * Created date: Jan 8, 2019
+   * Created time: 5:24:52 PM
+   * Description: TODO - get information of user login.
+   * @param username
+   * @param password
+   * @return
+   */
+  public User getInforLogin(String username, String password)
+      throws SQLException {
+    Connection conn = DbConnection.getConnection();
+    
+    User user = new User();
+    DbConnection.releaseConnection(conn);
+    return user;
+  }
+}

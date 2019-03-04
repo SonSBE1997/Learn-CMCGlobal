@@ -1,0 +1,43 @@
+/**
+ * Project name: JspAndServlet
+ * File name: UserService.java
+ * Author: sanero
+ * Created date: Jan 8, 2019
+ * Created time: 5:45:02 PM
+ */
+
+package service;
+
+import java.sql.SQLException;
+
+import entity.User;
+import repository.UserRepo;
+
+/*
+ * @author User
+ * Description: TODO - User service.
+ * Created date: Jan 8, 2019
+ * Created time: 5:45:02 PM
+ */
+public class UserService {
+  UserRepo userRepo;
+
+  /**
+   * Author: sanero.
+   * Created date: Jan 8, 2019
+   * Created time: 5:49:25 PM
+   * Description: TODO - check username exist.
+   * @param username - username.
+   * @return true if username exist, false otherwise.
+   */
+  public boolean isUsernameExist(String username) {
+    try {
+      User user = userRepo.getUserByUsername(username);
+      return user.getId() == 0;
+    } catch (SQLException e) {
+      return false;
+    }
+  }
+  
+  
+}

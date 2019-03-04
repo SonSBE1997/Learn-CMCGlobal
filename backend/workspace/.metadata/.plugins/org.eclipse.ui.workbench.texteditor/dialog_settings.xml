@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<section name="org.eclipse.ui.texteditor.GotoLineAction$GotoLineDialog_dialogBounds">
+		<item value="652" key="DIALOG_X_ORIGIN"/>
+		<item value="362" key="DIALOG_Y_ORIGIN"/>
+	</section>
+	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
+		<item value="false" key="isRegEx"/>
+		<item value="remove" key="selection"/>
+		<item value="false" key="casesensitive"/>
+		<item value="false" key="incremental"/>
+		<item value="true" key="wrap"/>
+		<item value="false" key="wholeword"/>
+		<list key="findhistory">
+			<item value="remove"/>
+			<item value="removeL"/>
+			<item value="removeQ"/>
+			<item value="random"/>
+			<item value="randomQuestion"/>
+			<item value="testReadExcel"/>
+			<item value="void"/>
+			<item value="&quot;Draft&quot;"/>
+			<item value="`"/>
+			<item value="&quot;createAt&quot;"/>
+			<item value="&quot;status&quot;"/>
+			<item value="&quot;duration&quot;"/>
+			<item value="&quot;title&quot;"/>
+			<item value="title"/>
+			<item value="&quot;desc&quot;"/>
+		</list>
+		<list key="replacehistory">
+			<item value="Constants.Exam.DURATION"/>
+			<item value="Constat"/>
+			<item value="Constants.Exam.DESC"/>
+			<item value="Constants.Exam.ASC"/>
+			<item value="("/>
+			<item value="personal"/>
+		</list>
+	</section>
+	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">
+		<item value="336" key="DIALOG_WIDTH"/>
+		<item value="1|Segoe UI|9.0|0|WINDOWS|1|-15|0|0|0|400|0|0|0|1|0|0|0|0|Segoe UI" key="DIALOG_FONT_NAME"/>
+		<item value="454" key="DIALOG_HEIGHT"/>
+		<item value="1260" key="DIALOG_X_ORIGIN"/>
+		<item value="232" key="DIALOG_Y_ORIGIN"/>
+	</section>
+</section>

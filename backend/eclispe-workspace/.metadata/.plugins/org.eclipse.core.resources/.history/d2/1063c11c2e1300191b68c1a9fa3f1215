@@ -1,0 +1,24 @@
+/**
+ * Project name: JspAndServlet
+ * File name: Contact.java
+ * Author: sanero
+ * Created date: Jan 8, 2019
+ * Created time: 5:10:35 PM
+ */
+
+package entity;
+
+/*
+ * @author User
+ * Description: TODO - Contact information.
+ * Created date: Jan 8, 2019
+ * Created time: 5:10:35 PM
+ */
+public class Contact {
+  // Attribute
+  private int id;
+  private String name;
+  private String phone;
+  private String address;
+  private String graduate;
+}

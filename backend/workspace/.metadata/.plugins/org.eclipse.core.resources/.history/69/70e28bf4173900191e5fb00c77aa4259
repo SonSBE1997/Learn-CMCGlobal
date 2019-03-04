@@ -1,0 +1,61 @@
+package com.cmcglobal.controller;
+
+import static org.junit.Assert.assertEquals;
+import static org.mockito.Mockito.when;
+
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Optional;
+import java.util.Set;
+
+import org.junit.Before;
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
+import org.mockito.Mockito;
+import org.mockito.MockitoAnnotations;
+import org.mockito.junit.MockitoJUnitRunner;
+
+import com.cmcglobal.entity.Answer;
+import com.cmcglobal.entity.Category;
+import com.cmcglobal.entity.Exam;
+import com.cmcglobal.entity.ExamQuestion;
+import com.cmcglobal.entity.Question;
+import com.cmcglobal.repository.AnswerRepository;
+import com.cmcglobal.repository.CategoryRepository;
+import com.cmcglobal.repository.ExamQuestionRepository;
+import com.cmcglobal.repository.ExamRepository;
+import com.cmcglobal.repository.QuestionRepository;
+import com.cmcglobal.service.serviceImpl.ExamServiceImpl;
+
+@RunWith(MockitoJUnitRunner.class)
+public class ExamControllerTest {
+
+}
+//////////////////////////////////////////////////////////// LAST
+//@RequestMapping(Api.Exam.BASE_URL)
+//@RunWith(SpringJUnit4ClassRunner.class)
+//@ContextConfiguration(classes = TestingSystemApplication.class)
+//@SpringBootTest
+//@FixMethodOrder(MethodSorters.NAME_ASCENDING)
+//public class ExamControllerTest {
+//private MockMvc mockMvc;
+//  
+//  @Autowired
+//    private WebApplicationContext wac;
+//
+//  @Before
+//  public void setup() {
+//        this.mockMvc = MockMvcBuilders.webAppContextSetup(wac).build();
+//
+//  }
+//  
+//  @Test
+//  public void verifyListExams() throws Exception {
+//    mockMvc.perform(MockMvcRequestBuilders.get(Api.Exam.GET_ALL).accept(MediaType.APPLICATION_JSON))
+//      .andExpect(jsonPath("$", hasSize(15))).andDo(print());
+//  }
+//}

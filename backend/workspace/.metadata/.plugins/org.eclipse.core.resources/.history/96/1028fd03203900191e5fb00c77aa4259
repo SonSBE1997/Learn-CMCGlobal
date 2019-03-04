@@ -1,0 +1,238 @@
+/**
+ * Project name: Testing_System
+ * Package name: com.cmcglobal.service
+ * File name: ExamServiceTest.java
+ * Author: Sanero.
+ * Created date: Feb 25, 2019
+ * Created time: 11:10:28 PM
+ */
+
+package com.cmcglobal.service;
+
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertNull;
+import static org.mockito.Mockito.when;
+
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Optional;
+import java.util.Random;
+import java.util.Set;
+
+import org.junit.Before;
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
+import org.mockito.Mockito;
+import org.mockito.MockitoAnnotations;
+import org.mockito.junit.MockitoJUnitRunner;
+
+import com.cmcglobal.entity.Answer;
+import com.cmcglobal.entity.Category;
+import com.cmcglobal.entity.Exam;
+import com.cmcglobal.entity.ExamQuestion;
+import com.cmcglobal.entity.Question;
+import com.cmcglobal.repository.AnswerRepository;
+import com.cmcglobal.repository.CategoryRepository;
+import com.cmcglobal.repository.ExamQuestionRepository;
+import com.cmcglobal.repository.ExamRepository;
+import com.cmcglobal.repository.QuestionRepository;
+import com.cmcglobal.service.serviceImpl.ExamServiceImpl;
+import com.cmcglobal.utils.Constants;
+import com.cmcglobal.utils.Helper;
+
+/*
+ * @author Sanero.
+ * Created date: Feb 25, 2019
+ * Created time: 11:10:28 PM
+ * Description: TODO - 
+ */
+@RunWith(MockitoJUnitRunner.Silent.class)
+public class ExamServiceTest {
+//@Autowired
+//private MockMvc mockMvc;
+
+  @Mock
+  private ExamRepository examRepository;
+
+  @Mock
+  private QuestionRepository questionRepository;
+
+  @Mock
+  private AnswerRepository answerRepository;
+
+  @Mock
+  private ExamQuestionRepository examQuestionRepository;
+
+  @Mock
+  private CategoryRepository categoryRepository;
+
+  @InjectMocks
+  private ExamServiceImpl examService;
+
+//@InjectMocks
+//private ExamController examController;
+
+  List<Exam> listExam;
+  Exam e1;
+  Exam e2;
+  Exam e3;
+  Exam e4;
+  Exam e5;
+  Category cate;
+  Set<ExamQuestion> examQuestions;
+  ExamQuestion q1;
+  ExamQuestion q2;
+  Question question;
+  Answer answer;
+
+  @Before
+  public void setUp() throws Exception {
+    MockitoAnnotations.initMocks(this);
+    Date date = new Date();
+    java.sql.Date sqlDate = new java.sql.Date(date.getTime());
+    listExam = new ArrayList<Exam>();
+    cate = new Category();
+    cate.setCategoryId(1);
+    cate.setCategoryName("java");
+    question = new Question();
+    question.setQuestionId("Q1");
+    question.setContent("content");
+
+    answer = new Answer();
+    answer.setAnswerId("A1");
+    answer.setTrue(true);
+
+    List<Answer> listAnswer = new ArrayList<Answer>();
+    listAnswer.add(answer);
+    listAnswer.add(answer);
+
+    question.setAnswers(listAnswer);
+
+    examQuestions = new HashSet<ExamQuestion>();
+    q1 = new ExamQuestion();
+    q1.setId(1);
+    q1.setExamId("Exam001");
+
+    q2 = new ExamQuestion();
+    q2.setId(2);
+    q2.setExamId("Exam001");
+
+    q1.setChoiceOrder("1 2");
+    q2.setChoiceOrder("1 2");
+
+    q1.setQuestion(question);
+    q2.setQuestion(question);
+    examQuestions.add(q1);
+    examQuestions.add(q2);
+
+    e1 = new Exam("Exam001", "Java basic1", 30, "no note", "Draft", true,
+        sqlDate, null, 20, cate, null, null, examQuestions);
+    e2 = new Exam("Exam002", "Java basic2", 40, "no note", "Draft", true,
+        sqlDate, null, 25, cate, null, null, null);
+    e3 = new Exam("Exam003", "Java basic3", 20, "no note", "Draft", true,
+        sqlDate, null, 16, cate, null, null, null);
+    e4 = new Exam("Exam004", "Java basic4", 10, "no note", "Draft", true,
+        sqlDate, null, 20, cate, null, null, null);
+    e5 = new Exam("Exam005", "Java basic5", 30, "no note", "Draft", true,
+        sqlDate, null, 30, cate, null, null, new HashSet<>());
+
+    listExam.add(e1);
+    listExam.add(e2);
+    listExam.add(e3);
+    listExam.add(e4);
+    listExam.add(e5);
+  }
+
+  @Test
+  public void testFindAll() {
+    when(examRepository.findAll()).thenReturn(listExam);
+    assertEquals(5, examService.findAll().size());
+  }
+
+  @Test
+  public void testCreate() {
+    Mockito.when(examRepository.save(e1)).thenReturn(e1);
+    assertEquals(true, examService.createExam(e1));
+  }
+
+  @Test
+  public void testFindById() {
+    Mockito.when(examRepository.findById("Exam001"))
+        .thenReturn(Optional.of(e1));
+    assertEquals(e1, examService.findById("Exam001"));
+  }
+
+  @Test
+  public void testApproveIdNotExist() {
+    Mockito.when(examRepository.findById("Exam001"))
+        .thenReturn(Optional.of(e1));
+    assertEquals(false, examService.approveExam("Exam001"));
+  }
+
+  @Test
+  public void testApproveCorrect() {
+    Mockito.when(examRepository.findById("Exam001"))
+        .thenReturn(Optional.of(e1));
+    assertEquals(false, e1.getExamQuestions().size() == 0);
+    assertEquals(false, examService.approveExam("Exam001"));
+    e1.setStatus(Constants.Exam.STATUS_PUBLIC);
+    Mockito.when(examRepository.save(e1)).thenReturn(e1);
+    assertEquals(true, Constants.Exam.STATUS_PUBLIC.equals(e1.getStatus()));
+  }
+
+  @Test
+  public void testRandomQuestion() {
+    List<Question> questionList = new ArrayList<Question>();
+    questionList.add(question);
+
+    Mockito.when(questionRepository.findByCategoryId(cate.getCategoryId()))
+        .thenReturn(questionList);
+
+    Mockito.when(examRepository.findById("Exam004"))
+        .thenReturn(Optional.of(e4));
+
+    Random random = new Random();
+    List<ExamQuestion> listExamQuestions = Helper.randomQuestion(random,
+        questionList, 1, "Exam004");
+
+    assertEquals(1, listExamQuestions.size());
+
+    for (ExamQuestion examQuestion : listExamQuestions) {
+      examQuestion.setExamId("Exam004");
+      int countAnswer = question.getAnswers().size();
+      String choiceOrder = Helper.randomChoiceOrder(random, countAnswer);
+      assertEquals(2, choiceOrder.split(" ").length);
+      examQuestion.setChoiceOrder(choiceOrder);
+
+      Mockito.when(examQuestionRepository.save(examQuestion))
+          .thenReturn(examQuestion);
+      assertEquals(choiceOrder, examQuestion.getChoiceOrder());
+    }
+  }
+
+  @Test
+  public void testRemoveQuestion() {
+    Mockito.when(examRepository.findById("Exam001"))
+        .thenReturn(Optional.of(e1));
+
+    assertEquals(2, e1.getExamQuestions().size());
+    Mockito.when(examQuestionRepository.findById(1))
+        .thenReturn(Optional.of(q1));
+    Mockito.when(examQuestionRepository.findById(1))
+        .thenReturn(Optional.of(q2));
+
+    assertNotNull(q1);
+
+    for (ExamQuestion examQuestion : e1.getExamQuestions()) {
+      examQuestionRepository.deleteById(examQuestion.getId());
+
+      assertEquals(Optional.ofNullable(null),
+          examQuestionRepository.findById(examQuestion.getId()));
+    }
+  }
+}
